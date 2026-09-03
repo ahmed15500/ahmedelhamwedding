@@ -111,6 +111,11 @@ a {
   letter-spacing: 0;
 }
 
+.eyebrow {
+  color: #fff2c7;
+  text-shadow: 0 3px 14px rgba(20, 6, 28, 0.72);
+}
+
 h1,
 h2,
 h3,
