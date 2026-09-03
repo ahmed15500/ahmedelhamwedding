@@ -146,7 +146,8 @@ h1 span {
 .hosts-invite {
   display: grid;
   justify-items: center;
-  gap: 10px;
+  gap: 9px;
+  max-width: 660px;
 }
 
 .hosts-invite p {
@@ -179,7 +180,7 @@ h1 span {
 .host-name strong {
   color: #fff8ef;
   font-family: "Aref Ruqaa", serif;
-  font-size: clamp(28px, 6.5vw, 48px);
+  font-size: clamp(25px, 5.8vw, 42px);
   line-height: 1.2;
   font-weight: 700;
 }
@@ -192,6 +193,39 @@ h1 span {
 .hosts-closing {
   max-width: 520px;
   font-size: clamp(15px, 2.8vw, 19px);
+}
+
+.couple-roles {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  width: min(560px, 100%);
+  gap: clamp(14px, 4vw, 32px);
+  color: #f1d8f4;
+  font-size: clamp(14px, 2.8vw, 18px);
+}
+
+.couple-names {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  width: min(620px, 100%);
+  gap: clamp(10px, 3vw, 22px);
+  margin: 0;
+  font-size: clamp(54px, 12vw, 96px);
+}
+
+.couple-names .person-name {
+  min-width: 0;
+  color: #fff8ef;
+  font-size: 1em;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.couple-names .names-heart {
+  color: var(--gold);
+  font-size: 0.5em;
+  line-height: 1;
 }
 
 .date-panel {
