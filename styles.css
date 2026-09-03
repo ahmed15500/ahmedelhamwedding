@@ -1,13 +1,13 @@
 :root {
-  --wine: #7f1d1d;
-  --red: #9f2830;
-  --rose: #f3c6bc;
-  --paper: #fff9ef;
-  --ink: #311515;
-  --muted: #745454;
-  --gold: #c69b4e;
-  --green: #2f5d50;
-  --shadow: 0 24px 70px rgba(80, 24, 24, 0.2);
+  --wine: #4d255f;
+  --red: #8661a2;
+  --rose: #ead6ee;
+  --paper: #fff8fb;
+  --ink: #27172f;
+  --muted: #6d5b72;
+  --gold: #c4a46c;
+  --green: #6f5f7f;
+  --shadow: 0 24px 70px rgba(55, 28, 70, 0.2);
 }
 
 * {
@@ -23,9 +23,9 @@ body {
   min-height: 100vh;
   color: var(--ink);
   background:
-    linear-gradient(rgba(255, 249, 239, 0.82), rgba(255, 249, 239, 0.82)),
+    linear-gradient(rgba(255, 248, 251, 0.84), rgba(255, 248, 251, 0.84)),
     url("assets/paper.webp") center/440px,
-    #fff9ef;
+    var(--paper);
   font-family: "Noto Kufi Arabic", system-ui, sans-serif;
 }
 
@@ -52,7 +52,7 @@ a {
   text-align: center;
   color: #fff6ea;
   background:
-    linear-gradient(180deg, rgba(68, 14, 17, 0.22) 0%, rgba(68, 14, 17, 0.5) 52%, rgba(68, 14, 17, 0.84) 100%),
+    linear-gradient(180deg, rgba(48, 24, 64, 0.16) 0%, rgba(57, 27, 70, 0.5) 52%, rgba(46, 20, 58, 0.88) 100%),
     url("assets/couple.png") center 18% / cover;
 }
 
@@ -72,6 +72,7 @@ a {
   width: min(360px, 64vw);
   aspect-ratio: 0.43;
   background: url("assets/flower2-decoration.webp") center/contain no-repeat;
+  filter: hue-rotate(-58deg) saturate(0.86);
   pointer-events: none;
 }
 
@@ -84,7 +85,7 @@ a {
   overflow: hidden;
   border: 1px solid rgba(255, 241, 216, 0.45);
   border-radius: 999px;
-  background: rgba(54, 12, 12, 0.32);
+  background: rgba(39, 18, 51, 0.36);
   backdrop-filter: blur(10px);
 }
 
@@ -99,7 +100,7 @@ a {
 
 .language-toggle .active {
   color: var(--wine);
-  background: #fff2df;
+  background: #f7ecf7;
 }
 
 .eyebrow,
@@ -124,7 +125,7 @@ h1 {
   font-family: "Aref Ruqaa", serif;
   font-size: clamp(58px, 15vw, 124px);
   line-height: 0.95;
-  text-shadow: 0 8px 36px rgba(22, 4, 4, 0.42);
+  text-shadow: 0 8px 36px rgba(20, 6, 28, 0.44);
   z-index: 1;
 }
 
@@ -147,7 +148,7 @@ h1 span {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   width: min(620px, 100%);
   border: 1px solid rgba(247, 216, 159, 0.66);
-  background: rgba(55, 11, 12, 0.34);
+  background: rgba(39, 18, 51, 0.4);
   backdrop-filter: blur(12px);
   z-index: 1;
 }
@@ -197,7 +198,7 @@ form button {
 form button {
   border: 0;
   color: var(--wine);
-  background: #fff2df;
+  background: #f7ecf7;
   cursor: pointer;
 }
 
@@ -223,8 +224,8 @@ form button {
   place-items: center;
   padding: 22px;
   background:
-    radial-gradient(circle at 50% 18%, rgba(246, 212, 148, 0.18), transparent 20rem),
-    #2b0709;
+    radial-gradient(circle at 50% 18%, rgba(196, 164, 108, 0.18), transparent 20rem),
+    #170d22;
   transition: opacity 600ms ease, visibility 600ms ease;
 }
 
@@ -248,7 +249,7 @@ form button {
   width: min(560px, 96vw);
   aspect-ratio: 0.87;
   background-image: url("assets/envelope-background.webp");
-  filter: drop-shadow(0 28px 42px rgba(0, 0, 0, 0.38));
+  filter: hue-rotate(-58deg) saturate(0.86) drop-shadow(0 28px 42px rgba(0, 0, 0, 0.38));
 }
 
 .opening-screen::after {
@@ -256,6 +257,7 @@ form button {
   width: min(520px, 92vw);
   aspect-ratio: 1.7;
   background-image: url("assets/envelope-cover.webp");
+  filter: hue-rotate(-58deg) saturate(0.86);
   transform: translateY(34px);
 }
 
@@ -288,7 +290,7 @@ form button {
   border-radius: 999px;
   padding: 12px 22px;
   color: var(--wine);
-  background: #fff1d8;
+  background: #f7ecf7;
   font: 700 15px/1 "Noto Kufi Arabic", sans-serif;
   cursor: pointer;
 }
@@ -298,7 +300,7 @@ form button {
   padding: clamp(34px, 7vw, 62px) clamp(22px, 7vw, 82px);
   text-align: center;
   background:
-    linear-gradient(rgba(255, 249, 239, 0.9), rgba(255, 249, 239, 0.9)),
+    linear-gradient(rgba(255, 248, 251, 0.91), rgba(255, 248, 251, 0.91)),
     url("assets/paper.webp") center/520px;
 }
 
@@ -344,14 +346,14 @@ form button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  background: #e7cfa8;
+  background: #d7c0dd;
 }
 
 .countdown-item {
   display: grid;
   justify-items: center;
   padding: 22px 8px;
-  background: #fff4e7;
+  background: #fbf0fa;
 }
 
 .countdown-item strong {
@@ -384,9 +386,9 @@ h2 {
 .detail-card {
   min-height: 210px;
   padding: 24px 18px;
-  border: 1px solid #ead7bb;
+  border: 1px solid #e3cfe7;
   border-radius: 8px;
-  background: #fffaf3;
+  background: #fff8fb;
 }
 
 .detail-icon {
@@ -424,9 +426,9 @@ h3 {
   padding: 52px 18px;
   color: #fff7ec;
   background:
-    linear-gradient(rgba(36, 68, 58, 0.82), rgba(36, 68, 58, 0.82)),
+    linear-gradient(rgba(50, 31, 67, 0.84), rgba(50, 31, 67, 0.84)),
     url("assets/castle-background.webp") center bottom/120% auto no-repeat,
-    #24443a;
+    #261934;
   text-align: center;
 }
 
@@ -460,11 +462,11 @@ label {
 input,
 textarea {
   width: 100%;
-  border: 1px solid #e4ceb0;
+  border: 1px solid #dfc7e3;
   border-radius: 8px;
   padding: 14px 16px;
   color: var(--ink);
-  background: #fffdf8;
+  background: #fffafb;
   font: 500 15px/1.7 "Noto Kufi Arabic", sans-serif;
 }
 
