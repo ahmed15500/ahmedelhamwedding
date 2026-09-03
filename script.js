@@ -18,7 +18,11 @@ function updateCountdown() {
 }
 
 document.querySelector("#open-invitation").addEventListener("click", () => {
-  openingScreen.classList.add("hidden");
+  if (openingScreen.classList.contains("is-opening")) return;
+  openingScreen.classList.add("is-opening");
+  window.setTimeout(() => {
+    openingScreen.classList.add("hidden");
+  }, 1300);
 });
 
 function formatCalendarDate(date) {
