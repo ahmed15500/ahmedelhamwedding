@@ -28,9 +28,9 @@ function formatCalendarDate(date) {
 document.querySelector("#calendar-link").href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
   "زفاف د. أحمد بحراوي ود. إلهام عبد العال",
 )}&dates=${formatCalendarDate(weddingDate)}/${formatCalendarDate(weddingEndDate)}&location=${encodeURIComponent(
-  "Chateau M",
+  "عرابي فيلا 700 Chateau M",
 )}&details=${encodeURIComponent(
-  "يتشرف الحاج بحراوي منصور والمهندس عبدالعال علي بدعوتكم لحضور حفل زفاف د. أحمد بحراوي ود. إلهام عبد العال في Chateau M. الخريطة: https://maps.app.goo.gl/3n4PE4BDrfPfru816",
+  "يتشرف الحاج بحراوي منصور والمهندس عبدالعال علي بدعوتكم لحضور حفل زفاف د. أحمد بحراوي ود. إلهام عبد العال في عرابي فيلا 700 Chateau M. الخريطه: https://maps.app.goo.gl/3n4PE4BDrfPfru816",
 )}`;
 
 updateCountdown();

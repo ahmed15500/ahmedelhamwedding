@@ -373,24 +373,24 @@ h1 span {
   width: min(620px, 100%);
   gap: clamp(10px, 2.7vw, 22px);
   margin: 0;
-  color: #5a2e6f;
-  font-size: clamp(48px, 10.4vw, 82px);
-  line-height: 1.08;
+  color: #6a3a82;
+  font-size: clamp(40px, 8.1vw, 66px);
+  line-height: 1.15;
   text-shadow: none;
 }
 
 .couple-names .person-name {
   min-width: 0;
-  color: #5a2e6f;
-  font-family: "Reem Kufi Ink", "Aref Ruqaa", serif;
-  font-weight: 400;
+  color: #6a3a82;
+  font-family: "Aref Ruqaa", "Amiri Quran", serif;
+  font-weight: 700;
   font-size: 1em;
   text-align: center;
   overflow-wrap: anywhere;
 }
 
 .couple-names .names-heart {
-  color: #7f5a94;
+  color: #9b75aa;
   font-family: "Aref Ruqaa", serif;
   font-size: 0.46em;
   line-height: 1;
@@ -796,7 +796,7 @@ form button {
 
   .couple-names {
     gap: 8px;
-    font-size: clamp(38px, 10.6vw, 50px);
+    font-size: clamp(32px, 8.8vw, 42px);
   }
 
   .card-date {
