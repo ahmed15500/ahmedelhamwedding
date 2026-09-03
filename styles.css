@@ -143,6 +143,57 @@ h1 span {
   z-index: 1;
 }
 
+.hosts-invite {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.hosts-invite p {
+  margin: 0;
+}
+
+.hosts-intro {
+  font-size: clamp(16px, 2.7vw, 20px);
+}
+
+.hosts-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(14px, 4vw, 32px);
+  width: min(560px, 100%);
+}
+
+.host-name {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.host-name span {
+  color: var(--gold);
+  font-size: clamp(15px, 2.8vw, 19px);
+}
+
+.host-name strong {
+  color: #fff8ef;
+  font-family: "Aref Ruqaa", serif;
+  font-size: clamp(28px, 6.5vw, 48px);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.hosts-and {
+  color: var(--gold);
+  font: 700 clamp(22px, 5vw, 34px) / 1 "Aref Ruqaa", serif;
+}
+
+.hosts-closing {
+  max-width: 520px;
+  font-size: clamp(15px, 2.8vw, 19px);
+}
+
 .date-panel {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -495,6 +546,10 @@ form button {
   .date-panel,
   .detail-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hosts-row {
+    gap: 10px;
   }
 
   .date-panel div + div {
