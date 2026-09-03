@@ -178,8 +178,9 @@ h1 span {
 }
 
 .host-name span {
-  color: var(--gold);
+  color: #fff2c7;
   font-size: clamp(15px, 2.8vw, 19px);
+  text-shadow: 0 3px 12px rgba(20, 6, 28, 0.7);
 }
 
 .host-name strong {
@@ -191,8 +192,9 @@ h1 span {
 }
 
 .hosts-and {
-  color: var(--gold);
+  color: #fff2c7;
   font: 700 clamp(22px, 5vw, 34px) / 1 "Aref Ruqaa", serif;
+  text-shadow: 0 3px 12px rgba(20, 6, 28, 0.7);
 }
 
 .hosts-closing {
