@@ -13,16 +13,15 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="invitation-closed">
+  <body>
     <main class="invitation-shell">
-      <section class="hero" id="hero" tabindex="-1" aria-label="دعوة الزفاف">
+      <section class="hero" id="hero" aria-label="دعوة الزفاف">
         <div class="ornament ornament-top" aria-hidden="true"></div>
         <div class="language-toggle" aria-label="اختيار اللغة">
           <button class="active" type="button">العربية</button>
           <button type="button">English</button>
         </div>
 
-        <div class="invitation-card-frame">
         <div class="invitation-card">
           <div class="card-corner card-corner-top-right" aria-hidden="true"></div>
           <div class="card-corner card-corner-top-left" aria-hidden="true"></div>
@@ -74,37 +73,14 @@
             <a class="primary-action" id="calendar-link" href="#">حفظ الموعد</a>
           </div>
         </div>
-        </div>
         <div class="ornament ornament-bottom" aria-hidden="true"></div>
       </section>
 
       <div class="opening-screen" id="opening-screen" aria-label="افتح الدعوة">
-        <div class="opening-backdrop" aria-hidden="true"></div>
-        <div class="envelope-scene">
-          <div class="envelope-body" aria-hidden="true"></div>
-          <div class="envelope-letter-mask" aria-hidden="true" inert>
-            <div class="envelope-letter"></div>
-          </div>
-          <div class="envelope-flap" aria-hidden="true">
-            <img src="assets/envelope-background.webp" alt="" />
-          </div>
-          <img class="envelope-seal" src="assets/envelope-background.webp" alt="" aria-hidden="true" />
-          <div class="envelope-smoke" aria-hidden="true">
-            <span style="--i:0;--drift:-110px"></span>
-            <span style="--i:1;--drift:80px"></span>
-            <span style="--i:2;--drift:-45px"></span>
-            <span style="--i:3;--drift:130px"></span>
-            <span style="--i:4;--drift:-140px"></span>
-            <span style="--i:5;--drift:40px"></span>
-            <span style="--i:6;--drift:-75px"></span>
-            <span style="--i:7;--drift:100px"></span>
-          </div>
-          <button class="envelope-trigger" type="button" id="open-invitation" aria-label="افتح دعوة زفاف د. أحمد ود. إلهام" aria-describedby="opening-hint"></button>
-        </div>
         <div class="opening-content">
           <p id="opening-title">دعوة زفاف</p>
           <h2 id="opening-names">د. أحمد & د. إلهام</h2>
-          <span id="opening-hint">اضغط على الظرف لفتح الدعوة</span>
+          <button type="button" id="open-invitation">افتح الدعوة</button>
         </div>
       </div>
 
