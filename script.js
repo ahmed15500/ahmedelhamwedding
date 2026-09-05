@@ -17,8 +17,30 @@ function updateCountdown() {
   });
 }
 
-document.querySelector("#open-invitation").addEventListener("click", () => {
+const openButton = document.querySelector("#open-invitation");
+const invitationSections = [...document.querySelector(".invitation-shell").children]
+  .filter((section) => section !== openingScreen);
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let isOpening = false;
+
+invitationSections.forEach((section) => { section.inert = true; });
+
+function revealInvitation() {
   openingScreen.classList.add("hidden");
+  openingScreen.inert = true;
+  document.body.classList.remove("invitation-closed");
+  invitationSections.forEach((section) => { section.inert = false; });
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  document.querySelector("#hero").focus({ preventScroll: true });
+}
+
+openButton.addEventListener("click", () => {
+  if (isOpening) return;
+  isOpening = true;
+  openButton.disabled = true;
+  openingScreen.classList.add("is-opening");
+  // Let the flap lift and the smoke rise before revealing the invitation.
+  window.setTimeout(revealInvitation, reducedMotion.matches ? 120 : 2200);
 });
 
 function formatCalendarDate(date) {

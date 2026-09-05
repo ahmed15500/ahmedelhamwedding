@@ -505,13 +505,20 @@ form button {
   display: none;
 }
 
+body.invitation-closed {
+  overflow: hidden;
+}
+
 .opening-screen {
   position: fixed;
   inset: 0;
   z-index: 50;
   display: grid;
   place-items: center;
+  align-content: center;
+  gap: 28px;
   padding: 22px;
+  overflow: hidden;
   background:
     radial-gradient(circle at 50% 18%, rgba(196, 164, 108, 0.18), transparent 20rem),
     #170d22;
@@ -524,20 +531,130 @@ form button {
   pointer-events: none;
 }
 
-.opening-screen::before {
-  content: "";
+.envelope-scene {
+  position: relative;
+  width: min(560px, 88vw, 60vh);
+  width: min(560px, 88vw, 60svh);
+  aspect-ratio: 1013 / 666;
+  margin-top: min(16vw, 100px);
+  perspective: 1400px;
+  isolation: isolate;
+  filter: drop-shadow(0 28px 42px rgba(0, 0, 0, 0.38));
+}
+
+.envelope-body {
   position: absolute;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  inset: 0;
+  background: url("assets/envelope-background.webp") center bottom / 100% auto no-repeat;
+  filter: hue-rotate(-58deg) saturate(0.86);
+}
+
+/* Reuse the original artwork: its upper 502px are the hinged flap. */
+.envelope-flap {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  height: calc(100% * 502 / 666);
+  overflow: hidden;
+  transform-origin: center bottom;
+  transform: rotateX(180deg);
+  backface-visibility: visible;
+  z-index: 2;
+  filter: hue-rotate(-58deg) saturate(0.86);
+}
+
+.envelope-flap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.envelope-seal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  clip-path: inset(63% 40% 16% 40%);
+  z-index: 3;
+  pointer-events: none;
+  filter: hue-rotate(-58deg) saturate(0.86);
+}
+
+.envelope-trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.envelope-trigger:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 8px;
+}
+
+.envelope-smoke {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
   pointer-events: none;
 }
 
-.opening-screen::before {
-  width: min(560px, 96vw);
-  aspect-ratio: 0.87;
-  background-image: url("assets/envelope-background.webp");
-  filter: hue-rotate(-58deg) saturate(0.86) drop-shadow(0 28px 42px rgba(0, 0, 0, 0.38));
+.envelope-smoke span {
+  position: absolute;
+  top: 8%;
+  left: calc(28% + var(--i) * 5%);
+  width: 38%;
+  aspect-ratio: 1;
+  opacity: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 35% 40%, rgba(255, 250, 255, 0.85), transparent 65%),
+    radial-gradient(ellipse at 65% 60%, rgba(226, 206, 238, 0.75), transparent 65%);
+  filter: blur(14px);
+  transform: translate(-50%, 0) scale(0.25);
+}
+
+.is-opening .envelope-seal {
+  animation: seal-release 350ms ease-in forwards;
+}
+
+.is-opening .envelope-flap {
+  animation: flap-open 1200ms cubic-bezier(0.4, 0, 0.2, 1) 200ms forwards;
+}
+
+.is-opening .envelope-smoke span {
+  animation: smoke-rise 1800ms ease-out forwards;
+  animation-delay: calc(400ms + var(--i) * 65ms);
+}
+
+.is-opening .opening-content {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@keyframes seal-release {
+  to { opacity: 0; transform: translateY(18px); }
+}
+
+@keyframes flap-open {
+  to { transform: rotateX(0deg); }
+}
+
+@keyframes smoke-rise {
+  0% { opacity: 0; transform: translate(-50%, 0) scale(0.25); }
+  20% { opacity: 0.8; }
+  60% { opacity: 0.5; }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--drift)), -220px) scale(2.7); }
 }
 
 .opening-content {
@@ -546,9 +663,10 @@ form button {
   display: grid;
   justify-items: center;
   gap: 12px;
-  margin-top: -40px;
+  margin-top: 0;
   color: #fff6ea;
   text-align: center;
+  transition: opacity 350ms ease, transform 350ms ease;
 }
 
 .opening-content p {
@@ -563,15 +681,28 @@ form button {
   text-shadow: 0 8px 24px rgba(0, 0, 0, 0.42);
 }
 
-.opening-content button {
-  min-height: 48px;
-  border: 1px solid rgba(255, 238, 202, 0.78);
-  border-radius: 999px;
-  padding: 12px 22px;
-  color: var(--wine);
-  background: #f7ecf7;
-  font: 700 15px/1 "Noto Kufi Arabic", sans-serif;
-  cursor: pointer;
+.opening-content h2 {
+  font-size: clamp(28px, 7vw, 48px);
+}
+
+#opening-hint {
+  color: #e5d4e9;
+  font-size: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .opening-screen,
+  .opening-content {
+    transition: none;
+  }
+
+  .is-opening .envelope-flap,
+  .is-opening .envelope-seal {
+    animation-duration: 1ms;
+    animation-delay: 0ms;
+  }
+
+  .envelope-smoke { display: none; }
 }
 
 .ornament-top {
