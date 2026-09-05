@@ -28,7 +28,7 @@ invitationSections.forEach((section) => { section.inert = true; });
 function revealInvitation() {
   openingScreen.classList.add("hidden");
   openingScreen.inert = true;
-  document.body.classList.remove("invitation-closed");
+  document.body.classList.remove("invitation-closed", "invitation-opening");
   invitationSections.forEach((section) => { section.inert = false; });
   window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   document.querySelector("#hero").focus({ preventScroll: true });
@@ -38,9 +38,11 @@ openButton.addEventListener("click", () => {
   if (isOpening) return;
   isOpening = true;
   openButton.disabled = true;
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  document.body.classList.add("invitation-opening");
   openingScreen.classList.add("is-opening");
-  // Let the flap lift and the smoke rise before revealing the invitation.
-  window.setTimeout(revealInvitation, reducedMotion.matches ? 120 : 2200);
+  // Match the CSS opening sequence: immediate smoke and zoom, then crossfade.
+  window.setTimeout(revealInvitation, reducedMotion.matches ? 120 : 1800);
 });
 
 function formatCalendarDate(date) {
