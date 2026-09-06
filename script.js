@@ -1,5 +1,5 @@
 const openingScreen = document.querySelector("#opening-screen");
-const weddingDate = new Date("2026-09-09T19:00:00+03:00");
+const weddingDate = new Date("2026-09-09T18:00:00+03:00");
 const weddingEndDate = new Date("2026-09-09T23:00:00+03:00");
 const countdownIds = ["days", "hours", "minutes", "seconds"];
 
